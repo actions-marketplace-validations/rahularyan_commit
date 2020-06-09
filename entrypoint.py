@@ -44,7 +44,7 @@ def run():
         add_args.extend(files.strip("'").split())
     if rebase == 'true':
         debug(git(['pull', '--rebase', '--autostash', 'origin', branch]))
-    debug(git(['checkout', '-B', branch]))
+    debug(git(['checkout', '--orphan', '-B', branch]))
     debug(git(add_args))
     debug(git(['commit', '-m', commit_message], retcode=None))
     debug(git(['push', '-f', '--follow-tags', '--set-upstream', 'origin', branch]))
