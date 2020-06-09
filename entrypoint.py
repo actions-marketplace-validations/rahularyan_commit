@@ -29,7 +29,9 @@ def run():
         )
     chmod = local['chmod']
     git = local['git']
+    chdir = local['chdir']
     debug(chmod(['600', netrc_path]))
+    debug(chdir([files]))
     debug(git(['config', '--global', 'user.email', email]))
     debug(git(['config', '--global', 'user.name', name]))
     debug(f'username:{github_actor}, branch:{branch}, commit message:{commit_message}')
